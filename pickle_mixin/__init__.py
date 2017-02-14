@@ -33,3 +33,5 @@ def test():
         print("Congratulations. All tests have passed!")
 
     return return_code
+
+__all__ = ['__version__', 'test', 'PickleByName', 'SlotPickleMixin']
