@@ -25,7 +25,7 @@ def setup_package():
 
     metadata = dict(
         name='pickle-mixin',
-        version='1.0.0.dev0',
+        version='1.0.0.dev1',
         maintainer="Danilo Horta",
         maintainer_email="horta@ebi.ac.uk",
         description="Makes un-pickle-able objects pick-able.",
