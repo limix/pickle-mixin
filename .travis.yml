@@ -9,19 +9,20 @@ matrix:
   - python: 3.5
   - python: 3.6
 before_install:
-  - travis/install_pandoc.sh
+- travis/install_pandoc.sh
 script:
-  - python setup.py sdist
-  - pip install dist/`ls dist | grep -i -E '\.(gz)$' | head -1`
-  - pushd /
-  - python -c "import sys; import pickle_mixin; sys.exit(pickle_mixin.test())"
-  - popd
+- python setup.py sdist
+- pip install dist/`ls dist | grep -i -E '\.(gz)$' | head -1`
+- pushd /
+- python -c "import sys; import pickle_mixin; sys.exit(pickle_mixin.test())"
+- popd
 notifications:
   email: false
 deploy:
   provider: pypi
-  skip_upload_docs: true
   user: dhorta
+  password:
+    secure: FDdGN0MZ0yvJV9byKd7+Dzn6lrDzdtvPmcuw5ksN4yrCDkPQYxMTDoIOwvF4YoVxqeqFtNS203b6BfEBSsyy1tFj3xZ/DcTB+gVJoXHVruDzoYtKfisdUsqpXAEeMt/4UmQPuXi80YL1A4TPN/OUy6VLSFzIkJ/cVfUf83OvmjBPLIg3rZvQrefsanEWMl7r22OeB/Oeva/LVzLZh8sLp3q8WyQlMHy7rUkoI1erwm3k7yY0AOBLZVdFZmo0TFY2cBvpbd4y8P3eS+kBnb8/RAHFo0i7oLllXH/KJ1YC5fwGCJl54I1b+en9sjRkuafxb2/5BzJjN+iD/5GQsOZ/Kzban40/wVbwcieb2EM+H5ypsBHJpsa2XlFMasJFcG+sH0tQ/SN/RYL2JPrmofpF4JerOIzXbAvHYbteNP85S+BZ2Z8n0vvMjq8ZCZmN0SlEWHbD1c88IhJYFh8N1eLxVwpUQZ4tf4kkJyV62rPwkbL6tCYvqs8UzoSSBVp884zKCMFkOVwDx8s0Hc2paH3Y5V8d52261R4qNHYkn5iRAT2Fi6HaKiHX0HPglrvdfs5n2oJniTn2O0oriWfY7A3vVXq8Uw+s+L6NGQbNPn6GhOJS2DzgsT6xC1hCefREsslwDyGXOLnzkMpXZ8/PuyHUTR1bmg3CpoHAgrfH+czaUeI=
   on:
-    distributions: sdist
+    distributions: sdist bdist_wheel
     repo: glimix/pickle-mixin
