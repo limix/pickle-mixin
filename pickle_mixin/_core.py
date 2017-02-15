@@ -7,8 +7,11 @@ def _fullname(o):
     return o.__class__.__module__ + "." + o.__class__.__name__
 
 class PickleByName(object):
-    """Makes un-pickle-able objects pick-able by setting its un-pickle-able
-    attributes as signature only attributes."""
+    """Makes un-pickle-able objects pick-able.
+
+    It sets its un-pickle-able attributes as signature only attributes.
+
+    """
     def __init__(self):
         self._signature_only_attrs = set()
 

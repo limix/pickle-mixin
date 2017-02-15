@@ -12,7 +12,6 @@ except _DistributionNotFound:
     __version__ = 'unknown'
 
 
-
 def test():
     r"""Tests this package.
 
@@ -33,5 +32,6 @@ def test():
         print("Congratulations. All tests have passed!")
 
     return return_code
+
 
 __all__ = ['__version__', 'test', 'PickleByName', 'SlotPickleMixin']
