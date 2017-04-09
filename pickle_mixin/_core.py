@@ -6,7 +6,7 @@ def _fullname(o):
     """Object's full name."""
     return o.__class__.__module__ + "." + o.__class__.__name__
 
-class PickleByName(object):
+class PickleByInit(object):
     """Makes un-pickle-able objects pick-able.
 
     It sets its un-pickle-able attributes as signature-only attributes.

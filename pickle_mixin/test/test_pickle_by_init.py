@@ -3,10 +3,10 @@ from pickle import PicklingError
 
 import pytest
 
-from pickle_mixin import PickleByName
+from pickle_mixin import PickleByInit
 
 
-class Foo(PickleByName):
+class Foo(PickleByInit):
     def __init__(self, obj):
         super(Foo, self).__init__()
         self.obj = obj
