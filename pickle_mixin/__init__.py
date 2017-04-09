@@ -4,7 +4,7 @@ from __future__ import unicode_literals as _
 from pkg_resources import DistributionNotFound as _DistributionNotFound
 from pkg_resources import get_distribution as _get_distribution
 
-from ._core import PickleByInit, SlotPickleMixin
+from .core import PickleByInit, SlotPickleMixin
 
 try:
     __version__ = _get_distribution('pickle_mixin').version
