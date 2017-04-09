@@ -3,35 +3,33 @@ from pickle import PicklingError
 
 import pytest
 
-from pickle_mixin import PickleByName
+from pickle_mixin import SlotPickleMixin
 
+class Foo(object):
+    __slots__ = ['a']
+    def __init__(self):
+        self.a = 4
 
-class Foo(PickleByName):
-    def __init__(self, obj):
-        super(Foo, self).__init__()
-        self.obj = obj
+class Bar(Foo):
+    def __init__(self):
+        pass
 
+class FooMixin(object):
+    __slots__ = ['a']
+    def __init__(self):
+        self.a = 4
 
-class Bar(object):
-    def __init__(self, filename):
-        self.filename = filename
+class BarMixin(FooMixin, SlotPickleMixin):
+    def __init__(self):
+        FooMixin.__init__(self)
+        SlotPickleMixin.__init__(self)
 
-    def __getstate__(self):
-        raise PicklingError
-
-    def init_dict(self):
-        return dict(filename=self.filename)
-
-
-def test_pickle_error():
-    f = Foo(Bar('file.txt'))
-    with pytest.raises(PicklingError):
-        pickle.dumps(f)
-
-
-def test_pickle_by_name():
-    f = Foo(Bar('file.txt'))
-    f.set_signature_only_attr('obj')
+def test_pickle_mixin():
+    f = Bar()
     o = pickle.dumps(f)
     f = pickle.loads(o)
-    assert f.obj.filename == 'file.txt'
+    assert not hasattr(f, 'a')
+    f = BarMixin()
+    o = pickle.dumps(f)
+    f = pickle.loads(o)
+    assert hasattr(f, 'a')
