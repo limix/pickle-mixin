@@ -31,7 +31,7 @@ def setup_package():
         description="Makes un-pickle-able objects pick-able.",
         long_description=long_description,
         license="MIT",
-        url='https://github.com/glimix/pickle-mixin',
+        url='https://github.com/limix/pickle-mixin',
         packages=find_packages(),
         zip_safe=True,
         install_requires=install_requires,

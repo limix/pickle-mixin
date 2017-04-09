@@ -24,7 +24,7 @@ def test():
     os.chdir(src_path)
 
     try:
-        return_code = __import__('pytest').main(['-q'])
+        return_code = __import__('pytest').main(['-q', '--doctest-modules'])
     finally:
         os.chdir(old_path)
 
