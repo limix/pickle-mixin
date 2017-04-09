@@ -18,11 +18,3 @@ script:
 - popd
 notifications:
   email: false
-deploy:
-  provider: pypi
-  user: dhorta
-  password:
-    secure: DGosNfMHF4jYmnmXg1b8BUYEHT3eQ3FKXOdaJi+doXhNg4rIH0lqZLEIwuBaAWpnog+XGab+0AW78iz2c8aC1zRCp8x5RmzE00MAsnGEaj8DTckzg7t67Mqh/n2q7OvjHriRZ2uY5/Gjc03eZQzonctYzVASoiyVJEUW+NltMPtKGxaTEynXBqU1j59WV477X9oOM2XxZ22g8UuRfO+7PKE2H4vUEm09coo5+nk1TZ286XkFCk9vQlMFG2yAvDKUTypQNGf7s3Pf+JgHogb6EwLPTUFf2f354TEDM6MjJ5txwLiAFlEhrWsNU8O8Iw/ofzNJZOFFWG6UW594mresJ6O0XEoAiCOOXCwbyVIlYeDzjtuG4pq8xZT4ClFvbRYF0IKw+bV06jAmtJiBhGWaYFayITWOZtTalSQd7583bjw279JjB9m5ar531p8ePGg9W7ZxOrX0kwl0OVnEJfCX2auYITpVrgbx7WXzo4aj4vNf0aMU01KBtU598CB6x3xX16HrrKmrij2y0vjz45tjk7d4OvGp+iYGxSSF/wtwbW778ipPQooKISYZxPcs2LhQZvonZY8y+bfwahDpTLlwWaOJ77JBJxkJrVvhoStn/2JHwOJYQGSzcwucSYyhLpQ+XyTxVgEBkRwZfmowqoZTgZJeruv9CbZP6VumhtRcubE=
-  on:
-    repo: limix/pickle-mixin
-    branch: 1.0.x
