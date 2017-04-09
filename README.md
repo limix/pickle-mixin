@@ -60,7 +60,45 @@ pickle.dumps(f)
 ```
 The un-pickling process of ``f.obj`` attribute happens via object
 initialisation, passing the returned dictionary from ``init_dict``
-as keyword arguments.
+as keyword arguments to ``Bar.__init__``.
+
+### Mixing classes with and without slots
+
+Pickling does not save attributes defined via ``__slots__`` in the following
+case:
+```python
+class Foo(object):
+    __slots__ = ['a']
+
+    def __init__(self):
+        self.a = 4
+
+
+class Bar(Foo):
+    def __init__(self):
+        pass
+```
+
+``SlotPickleMixin`` fixes it:
+```python
+class FooMixin(object):
+    __slots__ = ['a']
+
+    def __init__(self):
+        self.a = 4
+
+
+class BarMixin(FooMixin, SlotPickleMixin):
+    def __init__(self):
+        FooMixin.__init__(self)
+        SlotPickleMixin.__init__(self)
+
+f = BarMixin()
+o = pickle.dumps(f)
+f = pickle.loads(o)
+assert hasattr(f, 'a')
+```
+
 
 ## Authors
 
