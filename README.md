@@ -99,7 +99,6 @@ f = pickle.loads(o)
 assert hasattr(f, 'a')
 ```
 
-
 ## Authors
 
 * **Danilo Horta** - [https://github.com/Horta](https://github.com/Horta)
